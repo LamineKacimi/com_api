@@ -41,8 +41,7 @@ class ApiAuthenticationUser extends ApiAuthentication
 		$authenticate = JAuthentication::getInstance();
 		$response = $authenticate->authenticate(array( 'username' => $user, 'password' => $pass ));
 		
-		if ($response->status === JAuthentication::STATUS_SUCCESS)
-		 {
+		if ($response->status === JAuthentication::STATUS_SUCCESS) {
 			$instance = JUser::getInstance($response->username);
 			if ( $instance === false ) {
 				$this->setError( JError::getError() );
